@@ -12,3 +12,4 @@ We only use html, css, and semantic UI
 
 ### How test are updated ?
 We can use a html parser to update dom element.
+
