@@ -1,0 +1,985 @@
+<html>
+
+<head>
+    <title>QA DASHBOARD</title>
+    <meta charset="UTF-8">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="weather.js"></script>
+</head>
+
+<body>
+    <br>
+    <div class="container-env" id="env">
+        <button id="prod" class="ui secondary button" onclick="location.href='';">
+            PRODUCTION
+        </button>
+        <button id="pp" class="ui button" onclick="location.href='';">
+            PREPROD
+        </button>
+        <button id="staging" class="ui button" onclick="location.href='';">
+            STAGING
+        </button>
+    </div>
+    <div class="container-env" id="env">
+        <button id="prod" class="ui secondary button" onclick="location.href='';">
+            <i class="computer icon"></i>Desktop
+        </button>
+        <button id="pp" class="ui button" onclick="location.href='';">
+            <i class="mobile icon"></i>Mobile
+        </button>
+    </div>
+
+    <div id="pp-stats" class="ui raised segment ">
+        <h1 class="ui header">
+            <div class="content">
+                Automated test list - PRODUCTION
+            </div>
+        </h1>
+
+        <div class="ui six column compact grid" style="padding-left:10px">
+            <div class="blue column">
+                <h4 id="todayDate"></h4><br>
+                <i id="weatherStatus"></i>
+            </div>
+            <div id="cover" class="thwo wide column">
+                <b>Desktop - chrome</b><br><br>
+                <i class="computer huge icon"></i>
+                <i class="chrome huge icon"></i>
+            </div>
+            <div id="status" class="three wide column">
+                <div id="testOk"><i class="check circle green large icon"></i> <span class="ui large text"></span></div>
+                <div id="testKo"></div>
+                <div id="summuryMsg"></div>
+            </div>
+        </div>
+
+        <div id="infoMsg"></div>
+
+        <table class="ui celled table">
+            <thead>
+                <tr>
+                    <th class="single line">Criticity</th>
+                    <th class="single line">Scope</th>
+                    <th class="single line">Test</th>
+                    <th>Country coverage</th>
+                    <th>Browser coverage</th>
+                    <th>Last update</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="login:basic">
+                    <td>High</td>
+                    <td rowspan="2">Login</td>
+                    <td>
+                        <div class="ui styled accordion">
+                            <div class="ui success message title">
+                                <div class="ui two column compact grid">
+                                    <div class="column">
+                                        <h4 style="color:black"><i class="dropdown icon"></i>
+                                            Login</h4>
+                                    </div>
+                                    <div id="info" class="column">
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Login
+                                <div class="accordion" id="content-fr">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="fr flag" id="status-fr"></i> France
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650989070806">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">user@test.fr / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Login FR <br><span class="ui orange text">Given</span>  Im on website<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with x user<br><span class="ui orange text">And</span>  I go to my account<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 1.0 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-at">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="at flag"></i> Austria
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650989347471">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_at_de@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Login AT <br><span class="ui orange text">Given</span>  Im on website "AT/de"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-at"<br><span class="ui orange text">And</span>  I go to my account<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 0.8 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-es">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="es flag"></i> Spain
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650989408631">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_test_es_es@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Login es <br><span class="ui orange text">Given</span>  Im on website "ES/es"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-es"<br><span class="ui orange text">And</span>  I go to my account<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 1.0 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-it">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="it flag"></i> Italy
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650989464090">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_test_Italy@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Login it <br><span class="ui orange text">Given</span>  Im on website "IT/it"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-it"<br><span class="ui orange text">And</span>  I go to my account<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 0.9 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-uk">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="uk flag" id="status-uk"></i> UK
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650989291062">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_uk_test@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Login UK <br><span class="ui orange text">Given</span>  Im on website "UK/en"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-uk"<br><span class="ui orange text">And</span>  I go to my account<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 0.8 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-be">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="be flag"></i> Belgium
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650989128451">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_be_fr@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Login BE <br><span class="ui orange text">Given</span>  Im on website "BE/fr"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-be"<br><span class="ui orange text">And</span>  I go to my account<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 0.8 minutes</div></div>
+                                </div>
+                                 <div class="accordion" id="content-nl">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="nl flag"></i> Netherland
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650989181520">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_nl_nl_test@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Login NL <br><span class="ui orange text">Given</span>  Im on website "NL/nl"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-nl"<br><span class="ui orange text">And</span>  I go to my account<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 0.8 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-lu">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="lu flag"></i> Lux
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650989236834">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_lu_fr@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Login LU <br><span class="ui orange text">Given</span>  Im on website "LU/fr"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-lu"<br><span class="ui orange text">And</span>  I go to my account<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 0.8 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-de">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="de flag"></i> Germany
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650989519861">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_test_deutsh@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Login de <br><span class="ui orange text">Given</span>  Im on website "DE/de"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-de"<br><span class="ui orange text">And</span>  I go to my account<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 0.9 minutes</div></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>
+                    <td id="status-flag">
+                        <i class="fr flag" id="status-fr"></i>
+                        <i class="at flag" id="status-at"></i>
+                        <i class="es flag" id="status-es"></i><br><br>
+                        <i class="it flag" id="status-it"></i>
+                        <i class="uk flag" id="status-uk"></i>
+                        <i class="be flag" id="status-be"></i><br><br>
+                        <i class="nl flag" id="status-nl"></i>
+                        <i class="lu flag" id="status-lu"></i>
+                        <i class="de flag" id="status-de"></i><br><br>
+                    </td>
+                    <td id="desktop">
+                        <i class="chrome icon"></i>
+                    </td>
+                    
+                    <td id="date">
+                        <i>26/04 - 18h11</i>
+                    </td>
+                </tr>
+
+                <tr id="login:pwd">
+                    <td>High</td>
+                    <td>
+                        <div class="ui styled accordion">
+                            <div class="ui success message title">
+                                <div class="ui two column compact grid">
+                                    <div class="column">
+                                        <h4 style="color:black"><i class="dropdown icon"></i>
+                                            Forget password</h4>
+                                    </div>
+                                    <div id="info" class="column">
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Forget password
+                                <div class="accordion" id="content-fr">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="fr flag" id="status-fr"></i> France
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650980782707">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">user@test.fr / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Forget password fr prod <br><span class="ui orange text">Given</span>  Im on website<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I have forgetten my password<br>userName user-test-mail <br>newPwd myPassword123 <br><span class="ui orange text">And</span>  I wait "3000" ms<br><span class="ui orange text">And</span>  I go to my account<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 2.1 minutes</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td id="status-flag">
+                        <i class="fr flag" id="status-fr"></i>
+                    </td>
+                    <td id="desktop">
+                        <i class="chrome icon"></i>
+                    </td>
+                    
+                    <td id="date">
+                        <i>26/04 - 15h46</i>
+                    </td>
+                </tr>
+
+                <tr id="basket:anonymous">
+                    <td>High</td>
+                    <td>Basket</td>
+                    <td>
+                        <div class="ui styled accordion">
+                            <div class="ui success message title">
+                                <div class="ui two column compact grid">
+                                    <div class="column">
+                                        <h4 style="color:black"><i class="dropdown icon"></i>
+                                            Add product to basket</h4>
+                                    </div>
+                                    <div id="info" class="column">
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Add product to basket
+                                <div class="accordion" id="content-fr">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="fr flag" id="status-fr"></i> France
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650981308776">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvisfrozqyvdzw8s@test.fr / myPassword123</div>Products add to basket : <div class="ui inverted segment">104202,20000065</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Ajout Basket anonyme <br><span class="ui orange text">Given</span>  Im on website<br><span class="ui orange text">And</span>  I browse a specific product<br>type deco <br>market fr_fr <br><span class="ui orange text">And</span>  I add the product to the basket<br><span class="ui orange text">And</span>  I wait "3000" ms<br><span class="ui orange text">And</span>  I browse a specific product<br>source mirakl <br>market fr_fr <br>minPrice 400 <br><span class="ui orange text">And</span>  I wait "3000" ms<br><span class="ui orange text">And</span>  I add the product to the basket<br><span class="ui orange text">And</span>  I wait "2000" ms<br><span class="ui orange text">And</span>  I confirm basket<br><span class="ui orange text">And</span>  I login with "new-user-anonymous" on "fr_fr"<br><span class="ui orange text">And</span>  I go to basket<br><span class="ui orange text">And</span>  I see text "2 articles"<br><span class="ui orange text">And</span>  I check basket is OK<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 2.2 minutes</div></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>
+                    <td id="status-flag">
+                        <i class="fr flag" id="status-fr"></i>
+                    </td>
+                    <td id="desktop">
+                        <i class="chrome icon"></i>
+                    </td>
+                    
+                    <td id="date">
+                        <i>26/04 - 15h55</i>
+                    </td>
+                </tr>
+
+                <tr id="account:mdfpwd">
+                    <td>Medium</td>
+                    <td rowspan="3">Account</td>
+                    <td>
+                        <div class="ui styled accordion">
+                            <div class="ui success message title">
+                                <div class="ui two column compact grid">
+                                    <div class="column">
+                                        <h4 style="color:black"><i class="dropdown icon"></i>
+                                            Password modification</h4>
+                                    </div>
+                                    <div id="info" class="column">
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Login
+                                <div class="accordion" id="content-fr">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="fr flag" id="status-fr"></i> France
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650980028386">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">user@test.fr / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Password modification <br><span class="ui orange text">Given</span>  Im on website<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with x user<br><span class="ui orange text">And</span>  I go to my account<br><span class="ui orange text">And</span>  Je met à jour le mot de passe de "user-perso"<br><span class="ui orange text">And</span>  I see text "Merci ! Vos modifications ont bien été prises en compte."<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 1.4 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-at">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="at flag"></i> Austria
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650981065275">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_at_de@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Modify account AT <br><span class="ui orange text">Given</span>  Im on website "AT/de"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-at"<br><span class="ui orange text">And</span>  I go to my account<br><span class="ui orange text">And</span>  I update personal information<br>lastname Brown <br>birth 18/12/1992 <br>phone 0650 56132 <br><span class="ui orange text">And</span>  I see text "Vielen Dank! Ihre Änderungen wurden gespeichert!"<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 2.2 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-es">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="es flag"></i> Spain
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650980204100">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_test_es_es@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Password modification es <br><span class="ui orange text">Given</span>  Im on website "ES/es"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-es"<br><span class="ui orange text">And</span>  I go to my account<br><span class="ui orange text">And</span>  Je met à jour le mot de passe de "user-perso-es"<br><span class="ui orange text">And</span>  I see text "¡Gracias! Tus modificaciones se han guardado."<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 1.4 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-it">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="it flag"></i> Italy
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650981537362">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_test_Italy@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Password modification it <br><span class="ui orange text">Given</span>  Im on website "IT/it"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-it"<br><span class="ui orange text">And</span>  I go to my account<br><span class="ui orange text">And</span>  Je met à jour le mot de passe de "user-perso-it"<br><span class="ui orange text">And</span>  I see text "Grazie! Le tue modifiche sono state registrate."<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 1.2 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-uk">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="uk flag" id="status-uk"></i> UK
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650982472237">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_uk_test@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Password modification UK <br><span class="ui orange text">Given</span>  Im on website "UK/en"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-uk"<br><span class="ui orange text">And</span>  I go to my account<br><span class="ui orange text">And</span>  Je met à jour le mot de passe de "user-perso-uk"<br><span class="ui orange text">And</span>  I see text "Thank you! Your changes have been taken into account"<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 1.2 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-be">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="be flag"></i> Belgium
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650982444685">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_be_fr@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Password modification BE <br><span class="ui orange text">Given</span>  Im on website "BE/fr"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-be"<br><span class="ui orange text">And</span>  I go to my account<br><span class="ui orange text">And</span>  Je met à jour le mot de passe de "user-perso-be"<br><span class="ui orange text">And</span>  I see text "Merci ! Vos modifications ont bien été prises en compte."<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 1.2 minutes</div></div>
+                                </div>
+                                 <div class="accordion" id="content-nl">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="nl flag"></i> Netherland
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650982522529">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_nl_nl_test@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Password modification NL <br><span class="ui orange text">Given</span>  Im on website "NL/nl"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-nl"<br><span class="ui orange text">And</span>  I go to my account<br><span class="ui orange text">And</span>  Je met à jour le mot de passe de "user-perso-nl"<br><span class="ui orange text">And</span>  I see text "Bedankt! Je wijzigingen zijn opgeslagen"<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 1.2 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-lu">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="lu flag"></i> Lux
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650982601044">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_lu_fr@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Password modification LU <br><span class="ui orange text">Given</span>  Im on website "LU/fr"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-lu"<br><span class="ui orange text">And</span>  I go to my account<br><span class="ui orange text">And</span>  Je met à jour le mot de passe de "user-perso-lu"<br><span class="ui orange text">And</span>  I see text "Merci ! Vos modifications ont bien été prises en compte."<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 1.2 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-de">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="de flag"></i> Germany
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650981886009">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_test_deutsh@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Password modification de <br><span class="ui orange text">Given</span>  Im on website "DE/de"<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-de"<br><span class="ui orange text">And</span>  I go to my account<br><span class="ui orange text">And</span>  Je met à jour le mot de passe de "user-perso-de"<br><span class="ui orange text">And</span>  I see text "Vielen Dank! Ihre Änderungen wurden gespeichert!"<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 1.3 minutes</div></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </td>
+                    <td id="status-flag">
+                        <i class="fr flag" id="status-fr"></i>
+                        <i class="at flag" id="status-at"></i>
+                        <i class="es flag" id="status-es"></i><br><br>
+                        <i class="it flag" id="status-it"></i>
+                        <i class="uk flag" id="status-uk"></i>
+                        <i class="be flag" id="status-be"></i><br><br>
+                        <i class="nl flag" id="status-nl"></i>
+                        <i class="lu flag" id="status-lu"></i>
+                        <i class="de flag" id="status-de"></i><br><br>
+                    </td>
+                    <td id="desktop">
+                        <i class="chrome icon"></i>
+                    </td>
+                    
+                    <td id="date">
+                        <i>26/04 - 16h16</i>
+                    </td>
+                </tr>
+                <tr id="account:wishlist">
+                    <td>Medium</td>
+                    <td>
+                        <div class="ui styled accordion">
+                            <div class="ui success message title">
+                                <div class="ui two column compact grid">
+                                    <div class="column">
+                                        <h4 style="color:black"><i class="dropdown icon"></i>
+                                            Wishlist</h4>
+                                    </div>
+                                    <div id="info" class="column">
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Wishlist
+                                <div class="accordion" id="content-fr">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="fr flag" id="status-fr"></i> France
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650981172389">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">user@test.fr / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Add product to wishlist fr <br><span class="ui orange text">Given</span>  I empty wishlist of user "X" on "fr_fr" via api<br><span class="ui orange text">Given</span>  Im on website<br><span class="ui orange text">And</span>  I go to login page<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 2.4 minutes</div></div>
+                                </div>
+                                <div class="accordion" id="content-uk">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="uk flag" id="status-uk"></i> UK
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650982795018">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis_uk_test@test.com / myPassword123</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Add product to wishlist UK <br><span class="ui orange text">Given</span>   I empty wishlist of user "X" on "uk_en" via api<br><span class="ui orange text">Given</span>  Im on website<br><span class="ui orange text">And</span>  I go to login page<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 2.3 minutes</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td id="status-flag">
+                        <i class="fr flag" id="status-fr"></i>
+                        <i class="uk flag" id="status-uk"></i>
+                    </td>
+                    <td id="desktop">
+                        <i class="chrome icon"></i>
+                    </td>
+                    
+                    <td id="date">
+                        <i>26/04 - 16h19</i>
+                    </td>
+                </tr>
+                <tr id="account:order">
+                    <td>Medium</td>
+                    <td>
+                        <div class="ui styled accordion">
+                            <div class="ui success message title">
+                                <div class="ui two column compact grid">
+                                    <div class="column">
+                                        <h4 style="color:black"><i class="dropdown icon"></i>
+                                            My order</h4>
+                                    </div>
+                                    <div id="info" class="column">
+                                        <i></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content">
+                                Visibility my order
+                                <div class="accordion" id="content-fr">
+                                    <div class="ui success message title">
+                                        <div class="ui two column compact grid">
+                                            <div class="column">
+                                                <i class="dropdown icon"></i>
+                                                <i class="fr flag" id="status-fr"></i> France
+                                            </div>
+                                            <div class="column" id="lastExecution">
+                                                <i id="1650980243586">Last execution 2 minutes</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="content">
+            <div class="accordion visible">
+                <div class="ui title active"><i class="database icon"></i>Data</div>
+                <div class="active content">
+                    Account :  <div class="ui inverted segment">jarvis+prod+01@test.com / myPassword1!</div>
+                </div>
+            </div>
+        
+            <div class="accordion visible">
+                <div class="ui title active"><i class="tasks icon"></i>View all scenario steps</div>
+                <div class="content">
+                    <div class="ui inverted segment">
+                    <span class="ui blue text">SCENARIO</span> : Visibilité My order <br><span class="ui orange text">Given</span>  Im on website<br><span class="ui orange text">And</span>  I go to login page<br><span class="ui orange text">And</span>  I login with "user-perso-prod"<br><span class="ui orange text">And</span>  I check order are visible in my account<br><span class="ui orange text">And</span>  I go to my order<br><span class="ui orange text">And</span>  I check last order is conform<br>
+                    </div>
+                </div>
+            </div>
+        <div id="duration">Durée : 1.1 minutes</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td id="status-flag">
+                        <i class="fr flag" id="status-fr"></i>
+                    </td>
+                    <td id="desktop">
+                        <i class="chrome icon"></i>
+                    </td>
+                    
+                    <td id="date">
+                        <i>26/04 - 15h37</i>
+                    </td>
+                </tr>
+
+               
+
+            </tbody>
+        </table>
+    </div>    
+</body>
+
+</html>
