@@ -1,6 +1,8 @@
 # dashboard
 Sanity dashboard for gherkin test
 
+Access : https://guillaumeray.github.io/dashboard/
+
 ### How to easily display automated test result ? 
 * This dashboard show test information in a direct and clear format.
 * The weather show the global sanity of test.
