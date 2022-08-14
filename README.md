@@ -1,4 +1,4 @@
-# dashboard
+# Dashboard
 Sanity dashboard for gherkin test
 
 Access : https://guillaumeray.github.io/dashboard/
